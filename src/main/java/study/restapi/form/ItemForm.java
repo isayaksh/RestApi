@@ -6,7 +6,6 @@ import lombok.Data;
 public class ItemForm {
 
     private String name;
-    private String type;
     private int price;
 
     // Book

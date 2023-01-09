@@ -18,16 +18,24 @@ import static lombok.AccessLevel.PROTECTED;
 @AllArgsConstructor
 public class Book extends Item{
 
-    @Column(length = 24, nullable = false)
+    @Column(length = 24)
     private String author;
 
-    @Column(length = 24, nullable = false)
+    @Column(length = 24)
     private String isbn;
 
-    /** Book 업데이트 **/
+
+    // update Book
     @Override
     public void update(ItemForm form) {
+        this.setItem(form.getName(), form.getPrice());
         this.author = form.getAuthor();
         this.isbn = form.getIsbn();
+    }
+
+    public static Book createBook(String name, int price, String author, String isbn){
+        Book book = new Book(author, isbn);
+        book.setItem(name,price);
+        return book;
     }
 }

@@ -1,6 +1,7 @@
 package study.restapi.domain.item;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import study.restapi.form.ItemForm;
 
@@ -11,6 +12,7 @@ import static javax.persistence.InheritanceType.SINGLE_TABLE;
 import static lombok.AccessLevel.PROTECTED;
 
 @Entity
+@Getter
 @Inheritance(strategy = SINGLE_TABLE)
 @DiscriminatorColumn(name = "type")
 @NoArgsConstructor(access = PROTECTED)
@@ -30,13 +32,13 @@ public abstract class Item {
     @Column(nullable = false)
     private int price;
 
-    /** Item 업데이트 **/
-    public void updateBaseItem(String name, int price){
+    // Item update
+    public void setItem(String name, int price){
         this.name = name;
         this.price = price;
     }
 
-    /** Book, Movie 업데이트 **/
+    // Book, Movie update
     public abstract void update(ItemForm form);
 
 }

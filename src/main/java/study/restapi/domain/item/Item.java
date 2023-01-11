@@ -3,6 +3,7 @@ package study.restapi.domain.item;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import study.restapi.domain.BaseEntity;
 import study.restapi.form.ItemForm;
 
 import javax.persistence.*;
@@ -17,7 +18,7 @@ import static lombok.AccessLevel.PROTECTED;
 @DiscriminatorColumn(name = "type")
 @NoArgsConstructor(access = PROTECTED)
 @AllArgsConstructor
-public abstract class Item {
+public abstract class Item extends BaseEntity {
 
     @Id @GeneratedValue(strategy = IDENTITY)
     @Column(name = "item_id", updatable = false)

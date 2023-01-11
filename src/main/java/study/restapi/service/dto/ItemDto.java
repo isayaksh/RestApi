@@ -8,12 +8,18 @@ import study.restapi.domain.item.Item;
 import study.restapi.domain.item.Movie;
 import study.restapi.form.ItemForm;
 
+import java.time.LocalDateTime;
+
 import static lombok.AccessLevel.PROTECTED;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor(access = PROTECTED)
 public class ItemDto {
+
+    private LocalDateTime createdDate;
+    private LocalDateTime lastModified;
+
     private Long id;
     private String name;
     private int price;
@@ -26,6 +32,10 @@ public class ItemDto {
 
     public static ItemDto createItemDto(Item item){
         ItemDto dto = new ItemDto();
+
+        dto.createdDate = item.getCreatedDate();
+        dto.lastModified = item.getLastModified();
+
         dto.id = item.getId();
         dto.name = item.getName();
         dto.price = item.getPrice();

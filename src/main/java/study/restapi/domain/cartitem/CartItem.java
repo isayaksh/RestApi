@@ -3,6 +3,7 @@ package study.restapi.domain.cartitem;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import study.restapi.domain.BaseEntity;
 import study.restapi.domain.item.Item;
 import study.restapi.domain.member.Member;
 
@@ -16,7 +17,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Getter
 @NoArgsConstructor(access = PROTECTED)
 @AllArgsConstructor
-public class CartItem {
+public class CartItem extends BaseEntity {
 
     @Id @GeneratedValue(strategy = IDENTITY)
     @Column(name = "cart_item_id", updatable = false)

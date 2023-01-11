@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import study.restapi.form.ItemForm;
 import study.restapi.service.ItemService;
-import study.restapi.service.dto.BookDto;
 import study.restapi.service.dto.ItemDto;
 
 import java.util.List;
@@ -40,15 +39,15 @@ public class ItemController {
 
     // PATCH : localhost:8080/items/itemId
     @PatchMapping("/{itemId}")
-    public ItemDto update(@PathVariable Long memberId,
+    public ItemDto update(@PathVariable Long itemId,
                           @RequestBody ItemForm form){
-        return itemService.update(memberId, form);
+        return itemService.update(itemId, form);
     }
 
 
     // DELETE : localhost:8080/items/itemId
     @DeleteMapping("/{itemId}")
-    public void delete(@PathVariable Long memberId){
-        itemService.delete(memberId);
+    public void delete(@PathVariable Long itemId){
+        itemService.delete(itemId);
     }
 }

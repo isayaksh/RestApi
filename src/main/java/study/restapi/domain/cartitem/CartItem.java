@@ -29,4 +29,11 @@ public class CartItem {
     @OneToOne(fetch = LAZY)
     @JoinColumn(name = "item_id")
     private Item item;
+
+    public static CartItem createCartItem(Member member, Item item){
+        CartItem cartItem = new CartItem();
+        cartItem.member = member;
+        cartItem.item = item;
+        return cartItem;
+    }
 }

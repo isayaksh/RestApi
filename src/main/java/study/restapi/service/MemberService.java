@@ -26,7 +26,7 @@ public class MemberService {
     public MemberDto save(MemberForm form){
         Member member = Member.createMember(form.getUsername(), form.getPassword(), form.getAge());
         memberRepository.save(member);
-        return memberToDto(member);
+        return MemberDto.createMemberDto(member);
     }
 
     /**
@@ -40,10 +40,8 @@ public class MemberService {
 
     public MemberDto findOne(Long memberId){
         Member member = findById(memberId);
-        return memberToDto(member);
+        return MemberDto.createMemberDto(member);
     }
-
-
 
     /**
      * update
@@ -52,7 +50,7 @@ public class MemberService {
     public MemberDto update(Long memberId, MemberForm form){
         Member member = findById(memberId);
         member.update(form.getUsername(), form.getPassword(), form.getAge());
-        return memberToDto(member);
+        return MemberDto.createMemberDto(member);
     }
 
     /**
@@ -61,12 +59,6 @@ public class MemberService {
     @Transactional
     public void delete(Long memberId){
         memberRepository.deleteById(memberId);
-    }
-
-
-    // converter
-    public MemberDto memberToDto(Member member){
-        return MemberDto.createMemberDto(member.getId(), member.getUsername(), member.getPassword(), member.getAge());
     }
 
     // find entity

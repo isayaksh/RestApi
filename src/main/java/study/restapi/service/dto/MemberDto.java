@@ -17,12 +17,12 @@ public class MemberDto {
     private String password;
     private int age;
 
-    public static MemberDto createMemberDto(Long id, String username, String password, int age){
+    public static MemberDto createMemberDto(Member member){
         MemberDto dto = new MemberDto();
-        dto.id = id;
-        dto.username = username;
-        dto.password = password;
-        dto.age = age;
+        dto.id = member.getId();
+        dto.username = member.getUsername();
+        dto.password = member.getPassword();
+        dto.age = member.getAge();
         return dto;
     }
 

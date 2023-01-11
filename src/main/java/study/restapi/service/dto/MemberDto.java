@@ -6,12 +6,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import study.restapi.domain.member.Member;
 
+import java.time.LocalDateTime;
+
 import static lombok.AccessLevel.PROTECTED;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor(access = PROTECTED)
 public class MemberDto {
+
+    private LocalDateTime createdDate;
+    private LocalDateTime lastModified;
+
     private Long id;
     private String username;
     private String password;
@@ -19,6 +25,10 @@ public class MemberDto {
 
     public static MemberDto createMemberDto(Member member){
         MemberDto dto = new MemberDto();
+
+        dto.createdDate = member.getCreatedDate();
+        dto.lastModified = member.getLastModified();
+
         dto.id = member.getId();
         dto.username = member.getUsername();
         dto.password = member.getPassword();

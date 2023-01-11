@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import study.restapi.domain.BaseEntity;
 import study.restapi.domain.cartitem.CartItem;
 
 import javax.persistence.*;
@@ -17,7 +18,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Entity
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-public class Member {
+public class Member extends BaseEntity {
 
     @Id @GeneratedValue(strategy = IDENTITY)
     @Column(name = "member_id", updatable = false)

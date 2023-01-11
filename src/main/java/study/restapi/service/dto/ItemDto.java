@@ -14,6 +14,7 @@ import static lombok.AccessLevel.PROTECTED;
 @AllArgsConstructor
 @NoArgsConstructor(access = PROTECTED)
 public class ItemDto {
+    private Long id;
     private String name;
     private int price;
 
@@ -25,6 +26,7 @@ public class ItemDto {
 
     public static ItemDto createItemDto(Item item){
         ItemDto dto = new ItemDto();
+        dto.id = item.getId();
         dto.name = item.getName();
         dto.price = item.getPrice();
 

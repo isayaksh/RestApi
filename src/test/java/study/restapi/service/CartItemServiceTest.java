@@ -8,7 +8,7 @@ import study.restapi.domain.item.Movie;
 import study.restapi.domain.member.Member;
 import study.restapi.form.CartItemForm;
 import study.restapi.repository.ItemRepository;
-import study.restapi.repository.MemberRepository;
+import study.restapi.repository.member.MemberRepository;
 import study.restapi.service.dto.CartItemDto;
 
 import javax.transaction.Transactional;

@@ -16,19 +16,19 @@ public class CartItemController {
 
     private final CartItemService cartItemService;
 
-    // POST : localhost:8080
+    // POST : localhost:8080/carts
     @PostMapping
     public CartItemDto save(@RequestBody CartItemForm form){
         return cartItemService.save(form);
     }
 
-    // GET : localhost:8080/memberId
+    // GET : localhost:8080/carts/memberId
     @GetMapping("/{memberId}")
     public List<CartItemDto> findAll(@PathVariable Long memberId){
         return cartItemService.findAll(memberId);
     }
 
-    // DELETE : localhost:8080/cartItemId
+    // DELETE : localhost:8080/carts/cartItemId
     @DeleteMapping("/{cartItemId}")
     public void delete(@PathVariable Long cartItemId){
         cartItemService.delete(cartItemId);

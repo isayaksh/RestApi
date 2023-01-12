@@ -7,7 +7,7 @@ import study.restapi.domain.item.Book;
 import study.restapi.domain.item.Movie;
 import study.restapi.domain.member.Member;
 import study.restapi.repository.ItemRepository;
-import study.restapi.repository.MemberRepository;
+import study.restapi.repository.member.MemberRepository;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
@@ -18,7 +18,7 @@ public class InitDb {
 
     private final InitService initService;
 
-    // @PostConstruct
+    @PostConstruct
     public void init(){
         initService.createMembers();
         initService.createItems();
@@ -30,15 +30,18 @@ public class InitDb {
     @RequiredArgsConstructor
     static class InitService {
 
-        private final EntityManager em;
         private final MemberRepository memberRepository;
         private final ItemRepository itemRepository;
 
         public void createMembers(){
             Member member1 = Member.createMember("kim", "1234", 27);
             memberRepository.save(member1);
-            Member member2 = Member.createMember("lee", "4321", 26);
+            Member member2 = Member.createMember("lee", "2468", 22);
             memberRepository.save(member2);
+            Member member3 = Member.createMember("han", "4321", 23);
+            memberRepository.save(member3);
+            Member member4 = Member.createMember("um", "9870", 24);
+            memberRepository.save(member4);
         }
 
         public void createItems(){

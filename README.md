@@ -2,6 +2,24 @@
 REST API 를 이용한 CRUD 구현하기!
 
 #
+## TECH STACK
+
+<div flex="float" align="center">
+  <h3>⚡️ SKILLS </h3>
+  <img height="25px" src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat-square&logo=springboot&logoColor=000000"/>
+  <img height="25px" src="https://img.shields.io/badge/JPA-6DB33F?style=flat-square&logo=jpa&logoColor=000000"/>
+  <img height="25px" src="https://img.shields.io/badge/QueryDSL-0769AD?style=flat-square&logo=querydsl&logoColor=000000"/>
+</div>
+<div flex="float" align="center">
+  <img height="25px" src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=000000"/>
+  
+</div>
+<div flex="float" align="center">
+  <img height="25px" src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=000000"/>
+  <img height="25px" src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=000000"/>
+</div>
+
+#
 ## ERD
 <img width="831" alt="스크린샷 2023-01-11 오후 5 42 40" src="https://user-images.githubusercontent.com/85926257/211760122-ad092b56-02f1-457d-898e-c51662d12e8e.png">
 
@@ -31,9 +49,25 @@ REST API 를 이용한 CRUD 구현하기!
 - 모든 엔티티의 **공통 속성**으로 사용하기 위한 엔티티이다.
 
 #
-##
+## REST API URI Protocol
 
+### 공용
+- `GET` : 단일 객체 혹은 2개 이상의 객체에 대한 정보를 **호출**할 때 적용
+- `POST` : 새로운 객체를 **저장**할 때 적용
+- `PATCH` : 기존의 객체의 정보를 **갱신**할 때 사용
+- `DELETE` : 기존의 객체를 **제거**할 때 사용
 
+### 사용자(`Member`)
 ```
-(POST) http://localhost:8080/members
+http://{server}/members
+```
+
+### 상품(`Item`)
+```
+http://{server}/items
+```
+
+### 장바구니 상품(`CartItem`)
+```
+http://{server}/carts
 ```

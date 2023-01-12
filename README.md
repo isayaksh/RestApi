@@ -8,7 +8,8 @@ REST API 를 이용한 CRUD 구현하기!
 ### `Member` 엔티티
 
 - 사용자 이름(`username`), 비밀번호(`password`), 나이(`age`), 장바구니 상품 목록(`cartItems`)으로 구성되어 있다.
-- 장바구니 상품(`CartItem`) 엔티티와는 일대다 관계(`OneToMany`)를 갖는다.
+- 한 명의 사용자(`Member : 1`)가 장바구니에 여러개의 상품(`CartItem : N`)을 담을 수 있어야 한다.
+  - 따라서 사용자(`Member`) 엔티티는 장바구니 상품(`CartItem`) 엔티티와는 일대다 관계(`OneToMany`)를 갖는다.
 
 ### `CartItem` 엔티티
 - 사용자(`Member`), 상품(`Item`)로 구성되어 있다.
@@ -33,6 +34,6 @@ REST API 를 이용한 CRUD 구현하기!
 ##
 
 
-```url
+```
 (POST) http://localhost:8080/members
 ```

@@ -3,8 +3,11 @@ package study.restapi.service;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import study.restapi.exception.NotCorrespondingException;
 import study.restapi.form.MemberForm;
+import study.restapi.repository.member.MemberSearch;
 import study.restapi.service.dto.MemberDto;
 
 import javax.persistence.EntityManager;
@@ -49,6 +52,27 @@ class MemberServiceTest {
         assertThat(findMember.getUsername()).isEqualTo(username);
         assertThat(findMember.getPassword()).isEqualTo(password);
         assertThat(findMember.getAge()).isEqualTo(age);
+    }
+
+    @Test
+    public void member_findAllByNameAndAge() throws Exception {
+        // given
+        String username1 = "kim";
+        String password1 = "9870";
+        int age1 = 27;
+        MemberDto saveMember1 = saveMember(username1, password1, age1);
+
+        String username2 = "lee";
+        String password2 = "2468";
+        int age2 = 22;
+        MemberDto saveMember2 = saveMember(username2, password2, age2);
+        // when
+        Page<MemberDto> findMember1 = memberService.findAllByNameAndAge(new MemberSearch(username1, null), Pageable.unpaged());
+        Page<MemberDto> findMember2 = memberService.findAllByNameAndAge(new MemberSearch(username2, null), Pageable.unpaged());
+        Page<MemberDto> findMember3 = memberService.findAllByNameAndAge(new MemberSearch(null, age1), Pageable.unpaged());
+        Page<MemberDto> findMember4 = memberService.findAllByNameAndAge(new MemberSearch(null, age2), Pageable.unpaged());
+        // then
+
     }
     
     @Test

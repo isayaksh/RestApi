@@ -3,7 +3,6 @@ package study.restapi.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
 import study.restapi.domain.cartitem.CartItem;
 import study.restapi.domain.item.Item;
 import study.restapi.domain.member.Member;
@@ -11,9 +10,8 @@ import study.restapi.exception.NotCorrespondingException;
 import study.restapi.form.CartItemForm;
 import study.restapi.repository.CartItemRepository;
 import study.restapi.repository.ItemRepository;
-import study.restapi.repository.MemberRepository;
+import study.restapi.repository.member.MemberRepository;
 import study.restapi.service.dto.CartItemDto;
-import study.restapi.service.dto.ItemDto;
 
 import java.util.List;
 import java.util.stream.Collectors;

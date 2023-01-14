@@ -14,7 +14,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Entity
 @Getter
 @DiscriminatorValue("MOVIE")
-@NoArgsConstructor(access = PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
 public class Movie extends Item{
 

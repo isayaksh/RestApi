@@ -14,7 +14,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Entity
 @Getter
 @DiscriminatorValue("BOOK")
-@NoArgsConstructor(access = PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
 public class Book extends Item{
 

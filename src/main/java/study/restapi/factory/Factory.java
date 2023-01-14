@@ -4,5 +4,5 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface Factory {
-    Object getInstance(String type, Object form);
+    Object getInstance(String type);
 }

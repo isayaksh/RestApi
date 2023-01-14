@@ -9,13 +9,12 @@ import study.restapi.form.ItemForm;
 @Component
 public class ItemFactory implements Factory{
     @Override
-    public Object getInstance(String type, Object form) {
-        ItemForm itemForm = (ItemForm) form;
+    public Object getInstance(String type) {
         switch (type){
             case "book":
-                return Book.createBook(itemForm.getName(), itemForm.getPrice(), itemForm.getAuthor(), itemForm.getIsbn());
+                return new Book();
             case "movie":
-                return Movie.createMovie(itemForm.getName(), itemForm.getPrice(), itemForm.getDirector(), itemForm.getActor());
+                return new Movie();
             default:
                 throw new NotCorrespondingException("type에 해당하는 객체가 존재하지 않습니다.");
         }

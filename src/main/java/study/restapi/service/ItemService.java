@@ -29,7 +29,8 @@ public class ItemService {
      **/
     @Transactional
     public ItemDto save(ItemForm form, String type){
-        Item item = (Item) itemFactory.getInstance(type, form);
+        Item item = (Item) itemFactory.getInstance(type);
+        item.update(form);
         itemRepository.save(item);
         return ItemDto.createItemDto(item);
     }
